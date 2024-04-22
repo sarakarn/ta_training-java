@@ -21,18 +21,19 @@ public class HelloWebDriver {
         searchInputPaste.sendKeys("Hello from WebDriver");
 
         WebElement expirationForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("select2-postform-expiration-container")));
-       expirationForm.click();
-       String durationPath = String.format("//*[@id=\"select2-postform-expiration-results\"]/*[text()='%s']", "10 Minutes");
-       driver.findElement(By.xpath(durationPath)).click();
+        expirationForm.click();
+
+        String durationPath = String.format("//*[@id=\"select2-postform-expiration-results\"]/*[text()='%s']", "10 Minutes");
+        driver.findElement(By.xpath(durationPath)).click();
 
         WebElement searchInputPasteName = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.id("postform-name")));
         searchInputPasteName.sendKeys("helloweb");
 
-        WebElement searchButtonCreate = driver.findElement(By.xpath("//*[@id=\"w0\"]/div[5]/div[1]/div[11]/button"));
-        searchButtonCreate.click();
+       WebElement buttonCreateNewPaste = driver.findElement(By.xpath("//*[@id=\"w0\"]/div[5]/div[1]/div[10]/button"));
+       buttonCreateNewPaste.click();
 
-        Thread.sleep(2000);
+       Thread.sleep(4000);
         driver.quit();
 
     }
