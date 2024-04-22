@@ -38,6 +38,5 @@ public class NewSheriff {
 
     Thread.sleep(4000);
     driver.quit();
-
 }
 }
