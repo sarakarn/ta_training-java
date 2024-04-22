@@ -2,7 +2,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,7 +10,7 @@ import java.time.Duration;
 public class NewSheriff {
     public static void main(String[] args) throws InterruptedException {
 
-    RemoteWebDriver driver = new ChromeDriver();
+    WebDriver driver = new ChromeDriver();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
     driver.get("https://pastebin.com/");
 
@@ -21,11 +20,10 @@ public class NewSheriff {
             "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
             "git push origin master --force\n");
 
-
-//    WebElement expirationForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("select2-postform-format-container")));
-//    expirationForm.click();
-//    String highlightingPath = String.format("//*[id=\"select2-postform-format-container\"]/*[text()='%s']", "Bash");
-//    driver.findElement(By.xpath(highlightingPath)).click();
+    WebElement expirationForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("select2-postform-format-container")));
+    expirationForm.click();
+    WebElement input = driver.findElement(By.xpath("/html/body/span[2]/span/span[1]/input"));
+    input.sendKeys("Bash");
 
     WebElement expirationForm2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("select2-postform-expiration-container")));
     expirationForm2.click();
